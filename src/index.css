@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 200 15% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 200 15% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 15% 3.9%;
+    --primary: 165 60% 45%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 165 30% 96%;
+    --secondary-foreground: 165 60% 45%;
+    --muted: 165 10% 96%;
+    --muted-foreground: 165 20% 46%;
+    --accent: 165 30% 96%;
+    --accent-foreground: 165 60% 45%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 165 20% 90%;
+    --input: 165 20% 90%;
+    --ring: 165 60% 45%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 200 15% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 200 15% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 200 15% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 165 60% 45%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 165 30% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 165 10% 15.9%;
+    --muted-foreground: 165 20% 64.9%;
+    --accent: 165 30% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 165 20% 15.9%;
+    --input: 165 20% 15.9%;
+    --ring: 165 60% 45%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Smooth scrolling for the entire app */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Logo animations */
+  .tentacle {
+    transform-origin: 50% 50%;
+    animation: wave 3s ease-in-out infinite;
+  }
+  
+  .tentacle:nth-child(odd) {
+    animation-delay: -1.5s;
+  }
+  
+  @keyframes wave {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+  
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Premium shadows */
+  .shadow-premium {
+    @apply shadow-lg ring-1 ring-black/[0.03] backdrop-blur-[2px];
+  }
+  
+  .shadow-premium-lg {
+    @apply shadow-xl ring-1 ring-black/[0.05] backdrop-blur-[2px];
+  }
+
+  /* Warm gradients */
+  .bg-warm-gradient {
+    background: linear-gradient(to right, rgba(255, 236, 153, 0.4), rgba(255, 213, 153, 0.2));
+  }
+}
